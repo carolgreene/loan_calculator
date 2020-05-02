@@ -30,4 +30,26 @@ function calculateResults(e) {
   }
 }
 
+function showError(error) {
+  //create a div
+  const errorDiv = document.createElement('div')
+ 
+ //get elements
+ const card = document.querySelector('.card')
+ const heading = document.querySelector('.heading')
+ 
+  //add class & append text node
+  errorDiv.className = 'alert alert-danger'
+  errorDiv.appendChild(document.createTextNode(error))
+
+  //insert error above heading
+  card.insertBefore(errorDiv, heading)
+
+  //clear error after 3 sec
+  setTimeout(clearError, 3000)   //3000 milliseconds is 3 secs
+}
+
+function clearError() {
+  document.querySelector('.alert').remove()
+}
 
